@@ -10,6 +10,10 @@ Install URL: `https://rawgit.com/fabiospampinato/airmash-swam-extensions/master/
 
 Automatically say "Typing..." while typing.
 
+It adds a delay between messages, in order to avoid getting throttled.
+
+You might find problems with this if you send very long messages.
+
 ![Auto Say Typing](https://raw.githubusercontent.com/fabiospampinato/airmash-swam-extensions/master/resources/typing.png)
 
 ### Flag Borders
@@ -26,6 +30,8 @@ Install URL: `https://rawgit.com/fabiospampinato/airmash-swam-extensions/master/
 
 Add a laser pointer to your spaceship!
 
+Usage: use `p` for toggling the laser.
+
 ![Laser Pointer](https://raw.githubusercontent.com/fabiospampinato/airmash-swam-extensions/master/resources/laser_pointer.gif)
 
 ### Minimap Cycle
@@ -33,6 +39,8 @@ Add a laser pointer to your spaceship!
 Install URL: `https://rawgit.com/fabiospampinato/airmash-swam-extensions/master/extensions/minimap_cycle.js`
 
 Cycle between different minimap sizes.
+
+Usage: use `n` to cycle between 1x, 2x, and hidden,
 
 ![Minimap Cycle](https://raw.githubusercontent.com/fabiospampinato/airmash-swam-extensions/master/resources/minimap_cycle.gif)
 
@@ -59,6 +67,12 @@ Hide the level up dialog.
 Install URL: `https://rawgit.com/fabiospampinato/airmash-swam-extensions/master/extensions/toggle_elements.js`
 
 Toggle elements of the UI with a few keypresses.
+
+Usage:
+  - use `6` for toggling the chat
+  - use `7` for toggling the sidebar
+  - use `8` for toggling the leaderboard
+  - use `9` for toggling the minimap
 
 ![Clean](https://raw.githubusercontent.com/fabiospampinato/airmash-swam-extensions/master/resources/clean.png)
 
