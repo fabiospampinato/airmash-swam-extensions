@@ -19,7 +19,8 @@
 
     injectTextures ( files, textureInfo, flagTextureInfo, spriteInfo, textures ) {
 
-      const customFiles = ['aircraft.png', 'gui.png', 'items.png', 'map_forest.jpg', 'map_rock_mask.jpg', 'map_rock.jpg', 'map_sand_mask.jpg', 'map_sand.jpg', 'map_sea_mask.jpg', 'map_sea.jpg', 'mountains.png', 'particles.png', 'shadows.png'];
+      const customFiles = ['aircraft.png', 'gui.png', 'items.png', 'map_forest.jpg', 'map_rock.jpg', 'map_sand.jpg', 'map_sea.jpg', 'mountains.png', 'particles.png', 'shadows.png'];
+      // const otherFiles = ['map_rock_mask.jpg','map_sand_mask.jpg', 'map_sea_mask.jpg'];
 
       for ( let key in files ) {
 
