@@ -3,6 +3,8 @@
 
   /* VARIABLES */
 
+  const PI2 = Math.PI * 2;
+
   let active = false,
       prevAngle,
       $laserPointer;
@@ -107,7 +109,7 @@
 
     if ( angle === prevAngle ) return;
 
-    const deg = ( 360 * angle / 6.2777775 ) - 90; //TODO: `6.2777775` has been chosen empirically, what's the logic behind it?
+    const deg = ( 360 * angle / PI2 ) - 90;
 
     $laserPointer[0].style.transform = `rotate(${deg}deg)`;
 
