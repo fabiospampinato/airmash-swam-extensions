@@ -3,7 +3,9 @@
 
   /* VARIABLES */
 
-  let sizes = [240, 480, 0], //TODO: This should be customizable
+  let settings = {
+        sizes: '240, 480, 0'
+      },
       sizeIndex = -1;
 
   /* INIT */
@@ -27,6 +29,17 @@
 
   }
 
+  function initSettings () {
+
+    const provider = new SettingsProvider ( settings, updated => settings = updated ),
+          section = provider.addSection ( 'General' );
+
+    section.addString ( 'sizes', 'Minimap sizes' );
+
+    return provider;
+
+  }
+
   SWAM.on ( 'gameLoaded', init );
 
   /* EVENTS */
@@ -45,7 +58,15 @@
 
   /* API */
 
+  function _getSizes () {
+
+    return settings.sizes.split ( ',' ).map ( size => size.trim () );
+
+  }
+
   function cycle ( index ) {
+
+    const sizes = _getSizes ();
 
     sizeIndex = index === undefined ? ( sizeIndex + 1 ) % sizes.length : index;
 
@@ -65,7 +86,8 @@
     id: 'fabiospampinato.minimapCycle',
     description: 'Cycle between different minimap sizes.',
     version: '1.0.0',
-    author: 'Fabio Spampinato'
+    author: 'Fabio Spampinato',
+    settingsProvider: initSettings ()
   });
 
 }());
