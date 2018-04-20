@@ -5,7 +5,10 @@
 
   const SAY_DELAY = 3000; // In order to avoid getting throttled
 
-  let lastSayTime,
+  let settings = {
+        message: 'Typing...'
+      },
+      lastSayTime,
       lastKeypressTime,
       intervalId;
 
@@ -51,6 +54,17 @@
 
   }
 
+  function initSettings () {
+
+    const provider = new SettingsProvider ( settings, updated => settings = updated ),
+          section = provider.addSection ( 'General' );
+
+    section.addString ( 'message', 'Message' );
+
+    return provider;
+
+  }
+
   SWAM.on ( 'gameLoaded', init );
 
   /* EVENTS */
@@ -83,7 +97,7 @@
 
     lastSayTime = Date.now ();
 
-    Network.sendSay ( 'Typing...' ); //TODO: This should be customizable
+    Network.sendSay ( settings.message );
 
   }
 
@@ -94,7 +108,8 @@
     id: 'fabiospampinato.autoSayTyping',
     description: 'Automatically say "Typing..." while typing.',
     version: '1.0.0',
-    author: 'Fabio Spampinato'
+    author: 'Fabio Spampinato',
+    settingsProvider: initSettings ()
   });
 
 }());
