@@ -54,6 +54,8 @@
 
       let mob = Mobs.get ( data.id );
 
+      if ( !mob ) return;
+
       if ( ![ 1, 2, 3, 5, 6, 7 ].includes ( mob.type ) ) return;
 
       let player = Players.get ( playerId );
