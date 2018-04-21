@@ -5,6 +5,21 @@
 
   class HitCirclesTheme extends VanillaTheme {
 
+    constructor () {
+
+      super ();
+
+      setTimeout ( this.setLayers.bind ( this ) );
+
+    }
+
+    setLayers () {
+
+      game.graphics.layers.shadows.visible = false;
+      game.graphics.layers.smoke.visible = false;
+
+    }
+
     _getFileName ( str ) {
 
       str = str.substring ( str.lastIndexOf ( '/' ) + 1 );
