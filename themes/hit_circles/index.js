@@ -25,12 +25,14 @@
     _getPlayerTint ( player ) {
 
       return this.settings.gameplay.colorPlayers
-               ? player.team === 1
-                 ? 6148089
-                 : player.team === 2
-                   ? 16342394
-                   : 16777215
-               : 16777215;
+               ? player
+                 ? player.team === 1
+                   ? 6148089
+                   : player.team === 2
+                     ? 16342394
+                     : 16777215
+                 : 16378973
+               : 16777215
 
     }
 
@@ -45,8 +47,6 @@
     }
 
     _onMobAdded ( data, existing, playerId ) {
-
-      if ( !playerId ) return;
 
       if ( game.gameType !== 2 ) return;
 
