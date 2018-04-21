@@ -36,6 +36,20 @@
 
     }
 
+    _getThrusterTint ( player ) {
+
+      return this.settings.gameplay.colorPlayers
+               ? player
+                 ? player.team === 1
+                   ? 11003130
+                   : player.team === 2
+                     ? 16426935
+                     : 16777215
+                 : 16446375
+               : 16777215
+
+    }
+
     _getMobScale ( mob ) {
 
       return mob.type === 2
@@ -62,7 +76,7 @@
 
       /* TINTING */
 
-      mob.sprites.thruster.tint = 16777215;
+      mob.sprites.thruster.tint = this._getThrusterTint ( player );
       mob.sprites.sprite.tint = this._getPlayerTint ( player );
 
       /* SCALING */
