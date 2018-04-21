@@ -9,6 +9,8 @@
 
       super ();
 
+      SWAM.on ( 'mobAdded', ( ...args ) => setTimeout ( () => this._onMobAdded ( ...args ) ) ); //FIXME: Super ugly, but the tint gets overridden otherwise
+
       setTimeout ( this.setLayers.bind ( this ) );
 
     }
@@ -17,6 +19,43 @@
 
       game.graphics.layers.shadows.visible = false;
       game.graphics.layers.smoke.visible = false;
+
+    }
+
+    _getPlayerTint ( player ) {
+
+      return this.settings.gameplay.colorPlayers
+               ? player.team === 1
+                 ? 6148089
+                 : player.team === 2
+                   ? 16342394
+                   : 16777215
+               : 16777215;
+
+    }
+
+    _onMobAdded ( data, existing, playerId ) {
+
+      if ( !playerId ) return;
+
+      if ( game.gameType !== 2 ) return;
+
+      if ( !this.settings.gameplay.colorMissiles ) return;
+
+      let mob = Mobs.get ( data.id );
+
+      if ( ![ 1, 2, 3, 5, 6, 7 ].includes ( mob.type ) ) return;
+
+      let player = Players.get ( playerId );
+
+      mob.sprites.thruster.tint = 16777215;
+      mob.sprites.sprite.tint = this._getPlayerTint ( player );
+
+    }
+
+    tintPlayer ( player ) {
+
+      player.sprites.sprite.tint = this._getPlayerTint ( player );
 
     }
 
