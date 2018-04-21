@@ -34,6 +34,16 @@
 
     }
 
+    _getMobScale ( mob ) {
+
+      return mob.type === 2
+               ? [.2, .2]
+               : mob.type === 3
+                 ? [.2, .2]
+                 : [.2, .15];
+
+    }
+
     _onMobAdded ( data, existing, playerId ) {
 
       if ( !playerId ) return;
@@ -48,8 +58,14 @@
 
       let player = Players.get ( playerId );
 
+      /* TINTING */
+
       mob.sprites.thruster.tint = 16777215;
       mob.sprites.sprite.tint = this._getPlayerTint ( player );
+
+      /* SCALING */
+
+      mob.sprites.sprite.scale.set ( ...this._getMobScale ( mob ) );
 
     }
 
