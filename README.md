@@ -82,7 +82,7 @@ Usage:
 
 Install URL: `https://rawgit.com/fabiospampinato/airmash-swam-extensions/master/themes/hit_circles/index.js`
 
-A theme that replace every image with their actual hit circles.
+A theme that replaces all images with their actual hit circles.
 
 ![Hit Circles](https://raw.githubusercontent.com/fabiospampinato/airmash-swam-extensions/master/resources/hit_circles.gif)
 
